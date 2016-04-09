@@ -1,28 +1,51 @@
 function cqwva( d,y,x,index_incre,lvl,clip,line_color,face_color,mode,trace_balance )
 % wiggle variable area plot of seismic data
 %
-% input
-% -----
+% Input
+% =========================================================================
 % d = matrix of data
 % y = vector y means axis tick in y, scalar y means sampling rate in y
 % x = same for y but for horizontal direction (x direction)
 % index_incre = 1 = index increment. 1 stands for no
 %                  skipping. This is useful when there are too many 
 %                  traces on screen.
-% lvl = 1 (default) = positive = level of gain & fill peaks
-%                   = negative = level of gain & fill troughs
-% clip = 3 (default) = clip level
+% lvl = 1 = positive = level of gain & fill peaks
+%         = negative = level of gain & fill troughs
+% clip = 3 = clip level
 % line_color = 'k' = line color
 % face_color = 'k' = face (patch) color
-% mode = 'new'(default)  = open a new figure and new axis
+% mode = 'new'  = open a new figure and new axis
 %        'hold' = plot on the current axis
 %        'wipe' = clear current axis and draw a new one
-% trace_balance(optional) = [] = don't balance trace
-%                         = 'max' = balance according to maximum values
+% trace_balance = [] = don't balance trace
+%               = 'max' = balance according to maximum values
+%
+% License
+% =========================================================================
+% MatGeoLab, Geophysical software for seismic interpretation and processing
+% Copyright (C), 2016, Author: Chen Qi
+% 
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+% 
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+% =========================================================================
+% Contact Information: Chen Qi, Email: joe19890222@gmail.com
+% =========================================================================
 
+% avoid nan values
+d(isnan(d)) = 0;
 
 % avoid bugs in plotting
-d(end,:) = 0.1;
+d(end,:) = nan;
 
 % input check
 if ~exist('index_incre','var')||isempty(index_incre)

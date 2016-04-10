@@ -4,8 +4,8 @@ function cqwva( d,y,x,index_incre,lvl,clip,line_color,face_color,mode,trace_bala
 % Input
 % =========================================================================
 % d = matrix of data
-% y = vector y means axis tick in y, scalar y means sampling rate in y
-% x = same for y but for horizontal direction (x direction)
+% y = [] = vector y means axis tick in y, scalar y means sampling rate in y
+% x = [] = same for y but for horizontal direction (x direction)
 % index_incre = 1 = index increment. 1 stands for no
 %                  skipping. This is useful when there are too many 
 %                  traces on screen.

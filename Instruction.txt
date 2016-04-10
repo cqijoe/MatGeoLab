@@ -1,0 +1,36 @@
+Instruction for MatGeoLab Package
+
++++++++++++++++++++++++++++++++++
+1. User does not need to call a function with full list of arguments. Many variables have default values and those arguments with default   values will be indicated in the function comments. Following is a snippet of the function cqwva which is used to plot seismic wiggle variable area:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function cqwva( d,y,x,index_incre,lvl,clip,line_color,face_color,mode,trace_balance )
+% wiggle variable area plot of seismic data
+%
+% Input
+% =========================================================================
+% d = matrix of data
+% y = [] = vector y means axis tick in y, scalar y means sampling rate in y
+% x = [] = same for y but for horizontal direction (x direction)
+% index_incre = 1 = index increment. 1 stands for no
+%                  skipping. This is useful when there are too many 
+%                  traces on screen.
+% lvl = 1 = positive = level of gain & fill peaks
+%         = negative = level of gain & fill troughs
+% clip = 3 = clip level
+% line_color = 'k' = line color
+% face_color = 'k' = face (patch) color
+% mode = 'new'  = open a new figure and new axis
+%        'hold' = plot on the current axis
+%        'wipe' = clear current axis and draw a new one
+% trace_balance = [] = don't balance trace
+%               = 'max' = balance according to maximum values
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% y = [] = vector y means axis tick in y, scalar y means sampling rate in y
+---^ Above comment y = [] indicates that y needs not to be explicitly given and program will take care of it by default
+
+% line_color = 'k' = line color
+---^ Above comment line_color = 'k' indicates line_color has a default value 'k'
+
+[] sometimes also indicates none or do not do this as this one:
+% trace_balance = [] = don't balance trace
++++++++++++++++++++++++++++++++++
